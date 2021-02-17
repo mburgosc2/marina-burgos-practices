@@ -7,7 +7,7 @@ def fibon(n):
         list.append(f)
         a = b
         b = f
-    return list[-1]
+    return f
 
 print("The 5th term is ", fibon(5))
 print("The 10th term is ", fibon(10))
