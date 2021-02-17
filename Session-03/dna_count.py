@@ -22,7 +22,15 @@ def count(dna):
             t += 1
     return a, c, g, t
 
-dna = input("Enter the sequence: ")
+def read_from_file(filename):
+    with open(filename, "r") as f:
+        dna = f.read()
+        dna = dna.replace("\n", "")
+
+        return dna
+
+
+dna = read_from_file("dna.txt")
 if correct_seq(dna):
     print("Total length: ", len(dna))
     a, c, g, t = count(dna)
