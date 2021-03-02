@@ -1,5 +1,5 @@
 from pathlib import Path
 filename = "../P0/sequences/RNU6_269P.txt"
-file_contents = Path(filename).read_text()
-lines = file_contents.split("\n")
+file_content = Path(filename).read_text()
+lines = file_content.split("\n")
 print(lines[0])
