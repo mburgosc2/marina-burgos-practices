@@ -7,7 +7,9 @@ def correct_seq(dna):
 
 
 
-def count_bases(dna):
+
+
+def count(dna):
     a, c, g, t = 0, 0, 0, 0
     for i in dna:
         if i == "A":
@@ -20,15 +22,21 @@ def count_bases(dna):
             t += 1
     return a, c, g, t
 
-dna = input("Introduce the sequence: ")
-correct_dna = correct_seq(dna)
-if correct_dna:
-    print("Total length: " + str(len(dna)))
-    a, c, g, t = count_bases(dna)
-    print("A:", a)
-    print("C:", c)
-    print("G:", g)
-    print("T:", t)
+def read_from_file(filename):
+    with open(filename, "r") as f:
+        dna = f.read()
+        dna = dna.replace("\n", "")
 
+        return dna
+
+
+dna = read_from_file("dna.txt")
+if correct_seq(dna):
+    print("Total length: ", len(dna))
+    a, c, g, t = count(dna)
+    print("A", a)
+    print("C", c)
+    print("G", g)
+    print("T", t)
 else:
-    print("Not a valid dna seq")
+    print("Not a valid sequence")
