@@ -20,3 +20,29 @@ def seq_count(seq):
     for i in seq:
          gene_dict[i] += 1
     return gene_dict
+
+def seq_reverse(seq):
+    return seq[::-1]
+
+def seq_complement(seq):
+
+    rev = ""
+    complement_bases = {"A": "T", "C": "G", "G":"C" , "T": "A"}
+    for i in seq:
+        if i in complement_bases:
+            rev += complement_bases[i]
+        else:
+            rev += i
+    return rev
+
+import math
+
+def max_base(seq_count):
+    return max(seq_count, key=seq_count.get)
+
+
+
+
+
+
+
