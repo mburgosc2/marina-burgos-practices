@@ -5,6 +5,13 @@ s1 = Seq()
 s2 = Seq("ACTGA")
 s3 = Seq("jskdhs")
 
-print("Sequence 1: " +  ": (Length:" + str(s1.len()) + " ) " + str(s1))
-print("Sequence 2: " +  ": (Length:" + str(s2.len()) + " ) " + str(s2))
-print("Sequence 3: " +  ": (Length:" + str(s3.len()) + " ) " + str(s3))
+def print_result(i, sequence):
+    print("Sequence "+ str(i) + ": (Length:" + str(sequence.len()) + " ) " + str(sequence))
+    a, c, g, t = sequence.count_bases()
+    print("A:" + str(a) + " C:" + str(c) + " G:" + str(g) + " T:" + str(t))
+
+list_seq = [s1, s2, s3]
+
+for i in range(1, len(list_seq) + 1):
+    print_result(i, list_seq[i-1])
+
