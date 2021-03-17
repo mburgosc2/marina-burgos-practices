@@ -12,7 +12,7 @@ class Seq:
         # passed as argument when creating the object
 
         if strbases == Seq.NULL_SEQ :
-            print("NULL Seq created")
+            print("NULL Seq created!")
             self.strbases = strbases
         else:
             if Seq.is_valid_sequence2(strbases):
@@ -107,6 +107,27 @@ class Seq:
 
     def read_fasta(self, filename):
         self.strbases = Seq.take_out_first_line(Path(filename).read_text())
+
+    @staticmethod
+    def max_dict(dict_count):
+        return max(dict_count, key=dict_count.get)
+
+
+
+
+
+
+
+        #return max(Seq.count_bases, key=max_dicts.get )
+
+
+
+
+
+
+
+
+
 
 def test_sequences():
     s1 = Seq()
