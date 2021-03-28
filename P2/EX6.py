@@ -3,7 +3,7 @@ from pathlib import Path
 from Seq1 import Seq
 
 PRACTICE = 2
-EXERCISE = 1
+EXERCISE = 6
 
 print(f"-----| Practice {PRACTICE}, Exercise {EXERCISE} |------")
 
