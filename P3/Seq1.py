@@ -105,8 +105,16 @@ class Seq:
     def take_out_first_line(seq):
         return seq[seq.find("\n") + 1:].replace("\n", "")
 
-    def read_fasta(self, filename):
-        self.strbases = Seq.take_out_first_line(Path(filename).read_text())
+    # def read_fasta(self, filename)
+
+
+
+    def read_fasta2(self, filename):
+        seq = Path(filename).read_text()
+        seq = seq[seq.find("\n") + 1:].replace("\n", "")
+        self.strbases = seq
+
+        return self.strbases
 
     @staticmethod
     def max_dict(dict_count):

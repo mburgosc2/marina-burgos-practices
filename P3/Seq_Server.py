@@ -1,7 +1,11 @@
 import socket
 import server_utils
+import Seq1
 
+list_seq_bases =["AACCGTA"]
 list_Sequences =["AGTCAAAAATTTTCCCCGGGATTACATCAT", "ATGACTAGACATTTTTTTCGCGCGCATAC", "AAAAATTTCCGATACTAGTACGTACTG", "AACGGGGCTTTTCAGCTAC", "AAAAAAAAAAAAGGGGGGGGTTTCGCT"]
+list_genes = ["U5.txt", "ADA.txt", "FXN.txt", "RNU6_269P.txt", "FRAT1.txt"]
+
 # -- Step 1: create the socket
 ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -9,7 +13,7 @@ ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ls.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 # Configure the Server's IP and PORT
-PORT = 8089
+PORT = 8081
 IP = "127.0.0.1"
 
 # -- Step 1: create the socket
@@ -67,6 +71,18 @@ while True:
 
     elif  command == "GET":
         server_utils.get(cs, list_Sequences, argument)
+
+    elif command == "INFO":
+        server_utils.bases(cs, argument)
+
+    elif command == "COMP":
+        server_utils.complement(cs, argument)
+
+    elif command == "REV":
+        server_utils.reverse(cs, argument)
+
+    elif command == "GENE":
+        server_utils.genes(cs, argument)
     else:
         response = "Not available command"
         cs.send(str(response).encode())
