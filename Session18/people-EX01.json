@@ -1,0 +1,19 @@
+[
+ {
+    "Firstname": "Troll",
+    "Lastname": "Face",
+    "age": 20,
+    "phone_num": [{"number": "1111", "type":  "home"}, {"number":  "3333", "type":  "office"}]
+ },
+  {"Firstname": "Sax",
+    "Lastname": "guss",
+    "age": 40,
+    "phone_num": [{"number": "28373", "type":  "home"}]
+  },
+  {
+  "Firstname": "Rick",
+    "Lastname": "Rickroll",
+    "age": 60,
+    "phone_num": [{"number": "93284", "type":  "dancefloor"},{"number": "87372", "type":  "mobile"},{"number": "1167611", "type":  "fornite"}]
+  }
+]
