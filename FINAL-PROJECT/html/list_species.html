@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>List of Species</title>
+  </head>
+  <body style="background-color: grey;">
+    <h1>List of species in the genome database</h1>
+    <p>Total number of species in the esembl: {{context.number_s}}</p>
+    <p>Limit selected: {{context.limit}}</p>
+    <p>Names of the species:
+    {% for n in context.list_species %}
+
+    <ul>
+        <li type="disc">{{n}}</li>
+    </ul>
+    {% endfor %}
+    <br>
+
+    <a href="/">Main page</a>
+
+  </body>
+</html>

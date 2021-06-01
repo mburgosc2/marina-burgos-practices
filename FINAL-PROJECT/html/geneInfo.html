@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gene Information</title>
+  </head>
+  <body style="background-color: pink;">
+    <h1>{{context.gene_name}}'s Information</h1>
+    <p>Chromosome name: {{context.chrom_name}} </p>
+    <p>Id: {{context.id}} </p>
+    <p>Start: {{context.start}} </p>
+    <p>End: {{context.end}} </p>
+    <p>Length: {{context.len}} </p>
+      {{context.seq}}
+
+    <br>
+    <br>
+    <a href="/">Main page</a>
+
+  </body>
+</html>
