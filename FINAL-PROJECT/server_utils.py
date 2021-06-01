@@ -110,10 +110,8 @@ def infoseq(dict_response, gene):
 def calcseq(dict_response, gene):
     try:
         seq = Seq(dict_response["seq"])
-        count_bases = seq.count()
         percentage_bases = seq.percentage_base(seq.count_bases(), seq.len())
-        context = {"length_bases": count_bases,
-                   "percentage_bases": percentage_bases,
+        context = {"percentage_bases": percentage_bases,
                    "gene_name": gene,
                    "total_length": seq.len()}
         contents = read_template_html_file("./html/geneCalc.html").render(context=context)

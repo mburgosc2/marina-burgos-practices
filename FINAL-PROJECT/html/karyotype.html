@@ -6,14 +6,8 @@
   </head>
   <body style="background-color: beige;">
     <h1>Karyotype of {{context.specie_name}}</h1>
-    <p>Names of the chromosomes: {% for n in context.karyotype %}
-
-    <ul>
-        <li type="disc">{{n}}</li>
-    </ul>
-    {% endfor %}
+    <p>Names of the chromosomes: {% for n in context.karyotype %}<ul> <li type="disc">{{n}}</li></ul>{% endfor %}
     <br>
-
     <a href="/">Main page</a>
 
   </body>

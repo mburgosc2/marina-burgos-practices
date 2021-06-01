@@ -7,16 +7,10 @@
   <body style="background-color: lightyellow;">
     <h1>{{context.gene_name}}'s Calculations</h1>
     <p>Total length: {{context.total_length}}</p>
-
-    <p>Count bases: </p> {% for n in context.length_bases %}
-    <p>{{n}}: {{context.length_bases[n]}} </p>{% endfor %}
-
     <p>Percentage of each bases: </p>{% for n in context.percentage_bases %}
     <p>{{n}}: {{context.percentage_bases[n]}} </p>{% endfor %}
-
     <br>
     <br>
     <a href="/">Main page</a>
-
   </body>
 </html>

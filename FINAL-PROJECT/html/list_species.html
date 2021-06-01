@@ -9,15 +9,8 @@
     <p>Total number of species in the esembl: {{context.number_s}}</p>
     <p>Limit selected: {{context.limit}}</p>
     <p>Names of the species:
-    {% for n in context.list_species %}
-
-    <ul>
-        <li type="disc">{{n}}</li>
-    </ul>
-    {% endfor %}
+    {% for n in context.list_species %} <ul><li type="disc">{{n}}</li></ul>{% endfor %}
     <br>
-
     <a href="/">Main page</a>
-
   </body>
 </html>
