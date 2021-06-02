@@ -6,7 +6,7 @@ import pathlib
 # -- Server network parameters
 IP = "127.0.0.1"
 PORT = 8080
-HTML_ASSETS = "./HTML/"
+HTML_ASSETS = "./info/"
 
 def read_html_file(filename):
     contents = pathlib.Path(filename).read_text()
@@ -41,7 +41,7 @@ def process_client(s):
     # blank line
     # Body (content to send)
 
-    # This new contents are written in HTML language
+    # This new contents are written in info language
 
     # -- Status line: We respond that everything is ok (200 code)
     status_line = "HTTP/1.1 200 OK\n"
@@ -49,14 +49,14 @@ def process_client(s):
     # -- Add the Content-Type header
     header = "Content-Type: text/html\n"
     if path_name == "/":
-        body = read_html_file(HTML_ASSETS + "index.html")
+        body = read_html_file(HTML_ASSETS + "INDEX.html")
     elif "/info/" in path_name:
         try:
             body = read_html_file(HTML_ASSETS + path_name.split("/")[-1] + ".html")
         except FileNotFoundError:
-            body = read_html_file(HTML_ASSETS + "ERROR.html")
+            body = read_html_file(HTML_ASSETS + "error.html")
     else:
-        body = read_html_file(HTML_ASSETS + "ERROR.html")
+        body = read_html_file(HTML_ASSETS + "error.html")
 
     """if path_name == "/info/A":
         body = read_html_file(HTML_ASSETS + "A.html")
@@ -65,7 +65,7 @@ def process_client(s):
     elif path_name == "/info/G":
         body = read_html_file(HTML_ASSETS + "G.html")
     elif path_name == "/info/T":
-        body = read_html_file(HTML_ASSETS + "T.html")"""
+        body = read_html_file(HTML_ASSETS + "t.html")"""
 
     # -- Add the Content-Length
     header += f"Content-Length: {len(body)}\n"
