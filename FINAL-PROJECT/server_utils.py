@@ -24,12 +24,6 @@ def read_template_html_file(filename):
     contents = Template(Path(filename).read_text())
     return contents
 
-def print_color(message, color):
-    import termcolor
-    print(termcolor.colored(message, color))
-
-
-
 def get_data(ENDPOINT):
     SERVER = "rest.ensembl.org"
     PARAMS = "?content-type=application/json"
@@ -47,16 +41,23 @@ def list_species(dict_response, limit):
     try:
         number_s = len(dict_response["species"])
         list_s = []
-        for n in range(0, int(limit)):
+        if int(limit) == 0:
+            contents = read_template_html_file("./html/ERROR.html").render()
+        elif int(limit) < 0:
+            contents = read_template_html_file("./html/ERROR.html").render()
+        else:
+            for n in range(0, int(limit)):
 
-            try:
-                list_s.append(dict_response["species"][n]["display_name"])
-                context = {"limit": limit, "list_species": list_s, "number_s": number_s}
-                contents = read_template_html_file("./html/list_species.html").render(context=context)
-            except KeyError:
-                pass
-            except IndexError:
-                pass
+                try:
+                    list_s.append(dict_response["species"][n]["display_name"])
+                    context = {"limit": limit, "list_species": list_s, "number_s": number_s}
+                    contents = read_template_html_file("./html/list_species.html").render(context=context)
+
+                except KeyError:
+                    pass
+                except IndexError:
+                    pass
+
 
     except ValueError:
         contents = read_template_html_file("./html/ERROR.html").render()
